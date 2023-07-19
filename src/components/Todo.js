@@ -1,12 +1,17 @@
-import React from "react"
+import React, { useState,useContext } from 'react';
 import './Todo.css'
 import Form from './Form';
-const Todo = () => {
+import List from "./List";
+import { cont } from '../Context';
 
-    const [todos, setTodos] = React.useState([]);
+
+const Todo = () => {
+    const { todos, setTodos } = useContext(cont)
+
+    // const [todos, setTodos] = React.useState([]);
     const [todoEditing, setTodoEditing] = React.useState(null);
     const [editingText, setEditingText] = React.useState("");
-
+    const [message, setMessage] = useState('');
     //Delete tasks
     function deleteTodo(id) {
         let updatedTodos = [...todos].filter((todo) => todo.id !== id);
@@ -32,13 +37,12 @@ const Todo = () => {
         });
         setTodos(updatedTodos);
         setTodoEditing(null);
-    }
+          }
 
     return (
         <div id="todo-list">
             <h1>Todo List</h1>
             {/* <Form/> */}
-
             {todos.map((todo) => (
                 <div key={todo.id} className="todo">
                     <div className="todo-text">

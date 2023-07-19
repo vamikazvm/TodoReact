@@ -1,7 +1,15 @@
 import React from 'react'
+import Todo from './Todo';
 
-export const List = () => {
+const List = ({ todos }) => {
   return (
-    <div> </div>
+    <div>
+      <h1>Today's todos</h1>
+      <Todo
+        todos={todos}
+      />
+    </div>
   )
 }
+
+export default List
