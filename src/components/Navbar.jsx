@@ -1,12 +1,13 @@
-import { NavLink } from 'react-router-dom'
+/* eslint-disable react/react-in-jsx-scope */
+import {NavLink} from 'react-router-dom';
 
 export const Navbar = () => {
-  const navLinkStyles = ({ isActive }) => {
+  const navLinkStyles = ({isActive}) => {
     return {
       fontWeight: isActive ? 'bold' : 'normal',
       textDecoration: isActive ? 'none' : 'underline',
-    }
-  }
+    };
+  };
 
   return (
     <nav>
@@ -16,7 +17,6 @@ export const Navbar = () => {
       <NavLink style={navLinkStyles} to='/task-list'>
         Task-list
       </NavLink>
-
     </nav>
-  )
-}
+  );
+};
